@@ -1,0 +1,26 @@
+# Portainer Docker Standalone: use the GitHub Container Registry image.
+# Add ghcr.io registry credentials in Portainer for a private image.
+services:
+  ksef-xml-to-pdf:
+    image: ${CONVERTER_IMAGE:-ghcr.io/eletor-com/ksef-xml-to-pdf:latest}
+    restart: unless-stopped
+    init: true
+    environment:
+      API_KEY: ${API_KEY:?Set API_KEY with at least 32 characters}
+      KSEF_ENVIRONMENT: ${KSEF_ENVIRONMENT:-production}
+      PORT: "3000"
+    expose:
+      - "3000"
+    shm_size: 256mb
+    mem_limit: 1g
+    cpus: 2
+    pids_limit: 256
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - app_net
+networks:
+  app_net:
+    external: true

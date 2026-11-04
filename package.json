@@ -1,0 +1,25 @@
+{
+  "name": "ksef-xml-to-pdf",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Internal KSeF XML to PDF service using the Ministry of Finance renderer",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node src/server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "upstream:sync": "node scripts/sync-upstream.mjs",
+    "upstream:update": "node scripts/sync-upstream.mjs --update"
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "fast-xml-parser": "5.12.0",
+    "playwright": "1.64.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

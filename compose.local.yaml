@@ -1,0 +1,4 @@
+services:
+  ksef-xml-to-pdf:
+    ports:
+      - "127.0.0.1:${LOCAL_PORT:-3080}:3000"
