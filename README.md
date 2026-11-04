@@ -48,6 +48,8 @@ ghcr.io/eletor-com/ksef-xml-to-pdf:sha-<commit>
 5. Po testach użyj konkretnego tagu SHA lub digestu obrazu zamiast `latest`. Zachowaj poprzedni digest do wycofania aktualizacji.
 6. n8n podłączone do tej samej sieci wywołuje `http://ksef-xml-to-pdf:3000/convert`.
 
+Kontener ma stałą nazwę `ksef-xml-to-pdf` (ustawienie `container_name`), niezależnie od nazwy stosu. Na jednym hoście można uruchomić jeden kontener o tej nazwie. Po aktualizacji stosu Compose odtworzy kontener z nową nazwą.
+
 Plik Portainera używa gotowego obrazu, nie wymaga obsługi budowania Dockerfile przez Portainer. To konfiguracja Docker Standalone, nie Docker Swarm.
 
 ### Wariant bez rejestru obrazów

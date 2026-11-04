@@ -2,6 +2,7 @@
 # Add ghcr.io registry credentials in Portainer for a private image.
 services:
   ksef-xml-to-pdf:
+    container_name: ksef-xml-to-pdf
     image: ${CONVERTER_IMAGE:-ghcr.io/eletor-com/ksef-xml-to-pdf:latest}
     restart: unless-stopped
     init: true

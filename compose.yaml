@@ -1,5 +1,6 @@
 services:
   ksef-xml-to-pdf:
+    container_name: ksef-xml-to-pdf
     build: .
     image: eletor/ksef-xml-to-pdf:1.0.0
     restart: unless-stopped
