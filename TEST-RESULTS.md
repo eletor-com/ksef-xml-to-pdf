@@ -25,7 +25,14 @@ publiczny fixture MF i kod tworzący syntetyczne przypadki.
 
 ## Granice odbioru
 
-Nie testowano na rzeczywistych fakturach ELETOR, nie zapisywano dokumentów do Paperless
+Po uzyskaniu wyraźnej zgody użytkownika wykonano dodatkowy test jednej rzeczywistej
+faktury sprzedażowej i jednej zakupowej z produkcyjnego KSeF. W obu przypadkach:
+XML pobrano z poprawnym SHA-256, konwerter zwrócił PDF HTTP 200, numer faktury, numer
+KSeF, netto, VAT, brutto i waluta w tekście PDF zgadzały się z metadanymi. Oba dokumenty
+mają po 2 strony, wszystkie strony obejrzano. QR obu PDF-ów odczytano niezależnym
+dekoderem ZBar i porównano z linkami w PDF (OpenCV nie odczytał kodu zakupu, ZBar
+odczytał oba). PDF-y zapisano tylko lokalnie w ignorowanym output/pdf; danych faktur
+nie zapisano w repozytorium ani w logach. Nie zapisywano dokumentów do Paperless
 i nie tworzono workflow n8n. Pełna walidacja XSD nie jest częścią konwertera.
 Podział stron pozostaje taki jak w oryginalnym generatorze MF: w krótkim przykładzie
 VAT i zaliczki końcowa informacja o generatorze trafia na osobną stronę. Nie zmieniano
